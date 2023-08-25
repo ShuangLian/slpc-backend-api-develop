@@ -7,6 +7,8 @@ use App\Models\Activity;
 use App\Models\ActivityCheckin;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Exports\ActivityCheckinExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ActivityCheckinController extends Controller
 {
@@ -120,5 +122,10 @@ class ActivityCheckinController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function download(Request $request)
+    {
+        return (new ActivityCheckinExport($request))->download('activity.xlsx');
     }
 }

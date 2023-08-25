@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
+
 class ActivityController extends Controller
 {
     /**
@@ -54,7 +55,7 @@ class ActivityController extends Controller
             $activities->orderByDesc('date');
         }
 
-        // error_log($activities->get());
+        error_log($activities->get());
         return response()->json($activities->get());
         // return response()->json($activities->paginate());
     }
@@ -174,4 +175,5 @@ class ActivityController extends Controller
 
         return response(null);
     }
+
 }

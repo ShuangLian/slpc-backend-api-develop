@@ -53,6 +53,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::apiResource('series-events', \App\Http\Controllers\API\Admin\SeriesActivityController::class);
             Route::apiResource('event-categories', \App\Http\Controllers\API\Admin\ActivityCategoryController::class);
             Route::get('event-checkins', [\App\Http\Controllers\API\Admin\ActivityCheckinController::class, 'index']);
+            Route::get('event-download', [\App\Http\Controllers\API\Admin\ActivityCheckinController::class, 'download']);
         });
 
         Route::middleware('permission:' . PermissionConstraint::PAGE_EQUIPMENT)->group(function () {
@@ -96,6 +97,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::apiResource('series-activities', \App\Http\Controllers\API\Admin\SeriesActivityController::class);
         Route::apiResource('activity-categories', \App\Http\Controllers\API\Admin\ActivityCategoryController::class);
         Route::get('activity-checkins', [\App\Http\Controllers\API\Admin\ActivityCheckinController::class, 'index']);
+        
 
         Route::apiResource('admins', \App\Http\Controllers\API\Admin\AdminController::class);
         Route::get('country-codes', [\App\Http\Controllers\API\Admin\CountryCodeController::class, 'index']);
