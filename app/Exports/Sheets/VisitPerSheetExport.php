@@ -33,10 +33,10 @@ class VisitPerSheetExport implements FromArray, WithTitle, WithHeadings
         $array = [];
         foreach ($visits as $visit) {
             $array[] = [
-                'name' => $visit->getRelation('userProfile')['name'],
+                'name' => $visit->getRelation('userProfile')['name'] ?? null,
                 'zone' => $visit->getRelation('zone')['zone']['name'] ?? null,
-                'reason' => $visit->getRelation('visitReason')['reason'],
-                'visit_date' => $visit['visit_date'],
+                'reason' => $visit->getRelation('visitReason')['reason'] ?? null,
+                'visit_date' => $visit['visit_date'] ?? null,
             ];
         }
 
